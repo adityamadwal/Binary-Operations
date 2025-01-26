@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: radial-gradient(circle, #ffffff, #b9b8b8, #c5c4c4, #908f8f);
+            background-size: 300% 300%;
+            animation: radialBackground 5s infinite alternate ease-in-out;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes radialBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 50% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+        .container {
+            text-align: center;
+            background: rgba(243, 241, 241, 0.85); 
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 2.5em; 
+            font-weight: bold;
+            color: #141414;
+            text-shadow: 0 0 15px #f7f6f2, 0 0 30px #131212; 
+            animation: glow 1.5s infinite alternate;
+            margin-bottom: 20px;
+            white-space: nowrap; 
+        }
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px #3a3936, 0 0 10px #777673, 0 0 15px #383737;
+            }
+            100% {
+                text-shadow: 0 0 20px #f9f8f6, 0 0 40px #faf9f7, 0 0 60px #f0efea;
+            }
+        }
+        p {
+            font-size: 1.8em;
+            color: #171616;
+            margin-bottom: 20px;
+        }
+        .input-instruction {
+            font-size: 1.1em;
+            color: #0c0c0c;
+            margin-bottom: 15px;
+        }
+        .flag-box {
+            display: inline-block;
+            padding: 14px 29px;
+            font-size: 2.4em;
+            font-weight: bold;
+            color: #fcf8f8;
+            background: linear-gradient(to right, #7f7f7f, #484848, #5a5a5a);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+        .input-section {
+            margin-top: 20px;
+        }
+        .input-section input {
+            padding: 10px;
+            font-size: 1.2em;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .input-section button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #070707;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .input-section button:hover {
+            background-color: #787b79;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉Congratulations🎉</h1>
+        <p>Your flag is hidden here:</p>
+        <div class="flag-box">QklOMTEwMQ==</div>
+        <div class="input-instruction">Let's see if you get the flag...</div>
+        <div class="input-section">
+            <input type="text" id="flagInput" placeholder="Write number in decimal">
+            <button onclick="checkFlag()">Submit</button>
+        </div> 
+        <div class="message" id="message"></div>
+    </div>
+    <script>
+        const hiddenFlag = "13"; 
+        function checkFlag() {
+            const userInput = document.getElementById("flagInput").value;
+            const messageDiv = document.getElementById("message");
+            if (userInput === hiddenFlag) {
+                messageDiv.textContent = "🎉 Awsome! Your flag is:{flag_Bin1122}";
+            } else {
+                messageDiv.textContent = "❌ Incorrect, Try again...";
+            }
+        }
+    </script>
+</body>
+</html>
